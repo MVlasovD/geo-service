@@ -15,8 +15,10 @@ class MessageSenderImplTest {
     GeoServiceImpl geoServiceMock = Mockito.mock(GeoServiceImpl.class);
     LocalizationServiceImpl localizationServiceMock = Mockito.mock(LocalizationServiceImpl.class);
 
+
 //    Mockito.when();
 //        .returnThen
+
 
 
     }
