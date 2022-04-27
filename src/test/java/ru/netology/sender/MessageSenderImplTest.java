@@ -16,15 +16,15 @@ class MessageSenderImplTest {
 
     @Test
     void send() {
-        GeoService geoServiceMock = Mockito.spy(GeoServiceImpl.class);
-        LocalizationService localizationServiceMock = Mockito.spy(LocalizationServiceImpl.class);
-        MessageSender messageSenderMock = new MessageSenderImpl(geoServiceMock, localizationServiceMock);
-        String ipAddress = "172.123.12.19";
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "172.123.12.19");
-        Location location = new Location("Moscow", Country.RUSSIA, null, 0);
-        String country = localizationServiceMock.locale(Country.RUSSIA);
-        Mockito.when(messageSenderMock.send(headers))
-                .thenReturn("RUSSIA");
+        GeoService geoServiceMock = Mockito.mock(GeoServiceImpl.class);
+        LocalizationService localizationServiceMock = Mockito.mock(LocalizationServiceImpl.class);
+//        MessageSender messageSenderMock = new MessageSenderImpl(geoServiceMock, localizationServiceMock);
+//        String ipAddress = "172.123.12.19";
+//        Map<String, String> headers = new HashMap<String, String>();
+//        headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "172.123.12.19");
+//        Location location = new Location("Moscow", Country.RUSSIA, null, 0);
+//        String country = localizationServiceMock.locale(Country.RUSSIA);
+        Mockito.when(geoServiceMock.byIp("172.123.12.19"))
+                .thenReturn(localizationServiceMock.locale(loc));
     }
 }

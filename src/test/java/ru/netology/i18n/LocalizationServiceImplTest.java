@@ -11,13 +11,12 @@ import static ru.netology.entity.Country.RUSSIA;
 class LocalizationServiceImplTest {
 
     @Test
-    @Order(1)
     void locale() {
         Country country = RUSSIA;
         String expected = "Добро пожаловать";
-        assertNotNull(country);
         LocalizationServiceImpl loc = new LocalizationServiceImpl();
         String result = loc.locale(country);
+        assertNotNull(country);
         assertEquals(expected, result);
     }
 }
